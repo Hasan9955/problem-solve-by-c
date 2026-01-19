@@ -1,0 +1,3 @@
+
+
+    float module = a % b;
