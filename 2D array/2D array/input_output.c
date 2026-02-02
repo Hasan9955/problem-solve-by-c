@@ -13,7 +13,7 @@ int main () {
     }
     
     printf("\nOUTPUT: \n");
-    
+
     for(int i = 0; i< 5; i++){
         for (int j =0; j <3; j++){
             printf("%d ", a[i][j]); 
@@ -22,3 +22,5 @@ int main () {
     }
     return 0;
 }
+
+
