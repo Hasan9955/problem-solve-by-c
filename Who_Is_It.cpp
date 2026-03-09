@@ -33,3 +33,60 @@
 // 2 rakib D 96
 // 2 rakib D 96
 // 1 sakib A 50
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Student
+{
+public:
+    int id;
+    char name[100];
+    char section[10];
+    float totalMark;
+
+    Student()
+    {
+        cin >> this->id >> this->name >> this->section >> this->totalMark;
+    }
+
+    // Student(int id, char *name, char *section, float totalMark){
+    //     this->id = id;
+    //     strcpy(this->name, name);
+    //     strcpy(this->section, section);
+    //     this->totalMark = totalMark;
+    // }
+};
+
+int main()
+{
+
+    int n;
+    cin >> n;
+
+    for (int i = 0; i < n; i++)
+    {
+
+        Student a, b, c;
+
+        Student best = a;
+
+        if (b.totalMark > best.totalMark || 
+           (b.totalMark == best.totalMark && b.id < best.id))
+        {
+            best = b;
+        }
+
+        if (c.totalMark > best.totalMark || 
+           (c.totalMark == best.totalMark && c.id < best.id))
+        {
+            best = c;
+        }
+
+        cout << best.id << " "
+             << best.name << " "
+             << best.section << " "
+             << best.totalMark << endl;
+    }
+    return 0;
+}
