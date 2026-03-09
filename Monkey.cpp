@@ -21,3 +21,35 @@
 
 // ekmnoy
 // eefilloorvw
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+ 
+    string line;
+
+    while (getline(cin, line))
+    {
+        // Remove spaces and sort characters
+        string sorted_line = "";
+        // for(char c : line){
+        //     if(c != ' '){
+        //         sorted_line += c;
+        //     }
+        // }
+        for (size_t i = 0; i < line.length(); i++)
+        {
+            char c = line[i];
+            if (c != ' ')
+            {
+                sorted_line += c;
+            }
+        }
+        sort(sorted_line.begin(), sorted_line.end());
+        cout << sorted_line << endl;
+    }
+
+    return 0;
+}
