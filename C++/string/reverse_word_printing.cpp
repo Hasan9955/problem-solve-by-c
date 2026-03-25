@@ -2,7 +2,14 @@
 using namespace std;
 
 
-void print (stringstream ){
+void print (stringstream & ss){
+
+    string word;
+
+    if(ss >> word){
+        print(ss);
+        cout << word << endl;
+    }
 
 }
 
@@ -14,10 +21,14 @@ int main () {
 
     stringstream ss(s);
 
-    string word;
 
-    while(ss >> word){
-        cout << word << endl;
-    }
+    print(ss);
+
+
+    // string word;
+
+    // while(ss >> word){
+    //     cout << word << endl;
+    // }
     return 0;
 }
