@@ -1,24 +1,26 @@
 #include <iostream>
-#include<stdio.h>
 using namespace std;
 
-int main () {
+int main() {
     int a;
-    long long int b;
+    long long b;
     char c;
+
     cin >> a >> b >> c;
 
-    cout << a << endl << b << endl << c << endl;
-    //convert char to int
-    cout << (int)c << endl;
-    cout << int(c) << endl;
+    cout << a << '\n'
+         << b << '\n'
+         << c << '\n';
 
-    //convert int to char
-    cout << char(a) << endl;
-    cout << char(97) << endl;
+    // Convert char to int
+    cout << static_cast<int>(c) << '\n';
 
-    // convert int to long long int
-    cout << (long long int)a << endl;
+    // Convert int to char
+    cout << static_cast<char>(a) << '\n';
+    cout << static_cast<char>(97) << '\n';
+
+    // Convert int to long long
+    cout << static_cast<long long>(a) << '\n';
 
     return 0;
 }
