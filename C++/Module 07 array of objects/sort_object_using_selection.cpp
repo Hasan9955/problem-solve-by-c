@@ -30,6 +30,10 @@ int main () {
         for(int j = i; j < n; j++){
             if(arr[i].mark < arr[j].mark){
                 swap(arr[i], arr[j]);
+            } else if(arr[i].mark == arr[j].mark){
+                if(arr[i].roll > arr[j].roll){
+                    swap(arr[i], arr[j]);
+                }
             }
         }
     }
