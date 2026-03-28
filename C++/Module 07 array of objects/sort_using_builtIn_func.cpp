@@ -14,14 +14,21 @@ class Student
 
 bool cmp(Student a, Student b){
     // return a.mark >= b.mark;
-    if(a.mark >= b.mark){
-        return true;
-    } else if (a.mark == b.mark){
-        if(a.roll <= b.roll){
-        return true; 
-        }
+    // if(a.mark >= b.mark){
+    //     return true;
+    // } else if (a.mark == b.mark){
+    //     if(a.roll <= b.roll){
+    //     return true; 
+    //     } else {
+    //         return false;
+    //     }
+    // } else {
+    //     return false;
+    // }
+    if(a.mark == b.mark){
+        return a.roll <= b.roll;
     } else {
-        return false;
+        return a.mark >= b.mark;
     }
 }
 
