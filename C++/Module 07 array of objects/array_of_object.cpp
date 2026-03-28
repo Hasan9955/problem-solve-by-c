@@ -19,7 +19,9 @@ int main () {
     Student arr[n];
     
     for(int i = 0; i < n; i++){
-        cin >> arr[i].name >> arr[i].role >> arr[i].mark;
+        cin.ignore();
+        getline(cin, arr[i].name);
+        cin >> arr[i].role >> arr[i].mark;
     }
 
     for(int i = 0; i<n; i++){
