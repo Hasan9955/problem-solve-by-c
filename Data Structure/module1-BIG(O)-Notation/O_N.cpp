@@ -8,7 +8,7 @@ int main () {
     cin >> n;
 
     int arr[n];
-
+    // ------------- TIME COMPLEXITY O(n) -------------------
     for(int i = 0; i < n; i++){
         cin >> arr[i];
     }
@@ -18,6 +18,8 @@ int main () {
         s+=arr[i];
     }
 
+
+    cout << s << endl;
 
     return 0;
 }
