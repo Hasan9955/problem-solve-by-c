@@ -36,12 +36,12 @@ int main () {
     cin >> n >> q;
 
     vector <long long int> v(n + 1, 0);
-    vector<long long int> sumV(n + 1, 0);
+    vector<long long int> preSumV(n + 1, 0);
 
     for(int i = 1; i <= n; i++) {
         cin >> v[i];
 
-        sumV[i] = sumV[i - 1]  + v[i];
+        preSumV[i] = preSumV[i - 1]  + v[i];
         // cout << v[i] << " " << sumV[i] << endl;
     }
 
@@ -50,12 +50,9 @@ int main () {
 
         cin >> l >> r;
 
-        cout << sumV[r] - sumV[l - 1] << endl;
+        if(l == 0) cout << preSumV[r] << endl;
+        else cout << preSumV[r] - preSumV[l - 1] << endl;
         // cout << sumV[r] << " - " << sumV[l - 1] << " : " << sumV[r] - sumV[l - 1] << endl;
     }
-
-
-
-
     return 0;
 }

@@ -1,0 +1,1 @@
+{"name":"Local: Y_Range_sum_query","url":"c:\\Phi.HBA.Project\\Data Structure\\practice module 1\\Y_Range_sum_query.cpp","tests":[{"id":1775011664119,"input":"5 2 \n4 7 8 5 2\n1 5\n0 4","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Phi.HBA.Project\\Data Structure\\practice module 1\\Y_Range_sum_query.cpp","group":"local","local":true}
