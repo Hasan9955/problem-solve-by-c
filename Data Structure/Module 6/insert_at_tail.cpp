@@ -1,30 +1,90 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-class Node 
+class Node
 {
-    public:
-     int val;
-     Node* next;
+public:
+    int val;
+    Node *next;
 
-    Node(int val){
+    Node(int val)
+    {
         this->val = val;
         this->next = NULL;
     }
 };
 
-int main () {
+void insert_at_tail(Node *&head, int v)
+{
+    Node *newNode = new Node(v);
+    if (head == NULL)
+    {
+        head = newNode;
+        return;
+    }
 
-    
-    return 0;
+    Node *temp = head;
+
+    while (temp->next != NULL)
+    {
+        temp = temp->next;
+    }
+
+    temp->next = newNode;
 }
 
+void print_linked_list(Node *head)
+{
+    cout << "Your linked list: " << endl;
+    Node *temp = head;
 
+    while (temp != NULL)
+    {
+        cout << temp->val << " ";
+        temp = temp->next;
+    }
+}
+
+int main()
+{
+
+    Node *head = NULL;
+
+    while (true)
+    {
+        cout << "Option 1: Insert at Tail" << endl;
+        cout << "Option 2: Print Linked List" << endl;
+        cout << "Option 3: Terminate" << endl;
+
+        int op;
+        cin >> op;
+
+        if (op == 1)
+        {
+            cout << "Please enter value: ";
+            int v;
+            cin >> v;
+            insert_at_tail(head, v);
+        }
+
+        else if (op == 2)
+        {
+            print_linked_list(head);
+        }
+
+        else if (op == 3)
+        {
+            break;
+        }
+    }
+
+    return 0;
+}
 
 // #include<bits/stdc++.h>
 // using namespace std;
 
-// class Node 
+// class Node
 // {
 //     public:
 //      int val;
@@ -38,6 +98,5 @@ int main () {
 
 // int main () {
 
-    
 //     return 0;
 // }
