@@ -77,11 +77,24 @@ void insert_at_pos(Node *&head, Node *&tail, int pos, int v)
 {
 
     Node *newNode = new Node(v);
+
+    int s = size(head);
+
+    if(pos > s){
+        cout << "INVALID" << endl;
+        return;
+    }
+    
     if (pos == 0)
     {
         newNode->next = head;
         head->prev = newNode;
         head = newNode;
+        return;
+    }
+
+    if(pos == s){
+        insert_at_tail(head, tail, v);
         return;
     }
 
