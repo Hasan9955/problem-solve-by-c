@@ -55,30 +55,54 @@ int size(Node *head){
     return count;
 }
 
+// COMPLEXITY O(N^2)
+// void remove_duplicates(Node *head){
+//     Node *i = head;
 
-void remove_duplicates(Node *head){
-    Node *i = head;
+//     while (i != NULL){
+//         Node *prev = i;
+//         Node *j = i->next;
 
-    while (i != NULL){
-        Node *prev = i;
-        Node *j = i->next;
+//         while (j != NULL)
+//         {
+//             if(i->val == j->val){
+//                 prev->next = j->next;
+//                 delete j;
+//                 j = prev->next;
+//             } else {
+//                 prev = j;
+//                 j = j->next;
+//             }
+//         }
 
-        while (j != NULL)
-        {
-            if(i->val == j->val){
-                prev->next = j->next;
-                delete j;
-                j = prev->next;
-            } else {
-                prev = j;
-                j = j->next;
-            }
-        }
-
-        i = i->next;
+//         i = i->next;
         
-    }
+//     }
 
+// }
+
+
+// COMPLEXITY O(N);
+void remove_duplicates(Node *head){
+
+    unordered_set<int>seen;
+
+    Node *curr = head;
+    Node *prev = NULL;
+
+    while (curr != NULL)
+    {
+        if(seen.count(curr->val)){
+            prev->next = curr->next;
+            delete curr;
+            curr = prev->next;
+        } else {
+            seen.insert(curr->val);
+            prev = curr;
+            curr = curr->next;
+        }
+    }
+    
 }
 
 
