@@ -59,7 +59,8 @@ void insert_at_tail(Node *&head, Node *&tail, int v)
     tail = newNode;
 }
 
-int size (Node *head){
+int size(Node *head)
+{
     int count = 0;
     Node *temp = head;
 
@@ -70,7 +71,6 @@ int size (Node *head){
     }
 
     return count;
-    
 }
 
 void insert_at_pos(Node *&head, Node *&tail, int pos, int v)
@@ -80,15 +80,17 @@ void insert_at_pos(Node *&head, Node *&tail, int pos, int v)
 
     int s = size(head);
 
-    if(pos > s){
+    if (pos > s)
+    {
         cout << "INVALID" << endl;
         return;
     }
-    
+
     if (pos == 0)
     {
-        
-        if(head == NULL){
+
+        if (head == NULL)
+        {
             head = newNode;
             tail = newNode;
             return;
@@ -100,7 +102,8 @@ void insert_at_pos(Node *&head, Node *&tail, int pos, int v)
         return;
     }
 
-    if(pos == s){
+    if (pos == s)
+    {
         insert_at_tail(head, tail, v);
         return;
     }
@@ -118,6 +121,45 @@ void insert_at_pos(Node *&head, Node *&tail, int pos, int v)
     newNode->prev = temp;
     temp->next->prev = newNode;
     temp->next = newNode;
+}
+
+void delete_at_pos(Node *&head, Node *&tail, int pos)
+{
+
+    int s = size(head);
+
+    if(pos == 0 || pos == 1){
+        Node *deleteNode = head;
+        head->next->prev = NULL;
+        head = head->next;
+        delete deleteNode;
+
+        return;
+    }
+
+    if(pos == s){
+        Node *deleteNode = tail;
+        tail->prev->next = NULL;
+        tail = tail->prev;
+        delete deleteNode;
+        return;
+    }
+
+    if(pos > s){
+        cout << "INVALID" << endl;
+        return;
+    }
+
+    Node *temp = head;
+    for (int i = 1; i < pos - 1; i++)
+    {
+        temp = temp->next;
+    }
+
+    Node *deleteNode = temp->next;
+    temp->next = deleteNode->next;
+    temp->next->prev = temp;
+    delete deleteNode;
 }
 
 int main()
@@ -141,12 +183,39 @@ int main()
         insert_at_tail(head, tail, v);
     }
 
+    // while (true)
+    // {
+    //     int pos, v;
+    //     cin >> pos >> v;
+
+    //     if (pos == -1 || v == -1)
+    //     {
+    //         print_normal(head);
+    //         print_reverse(tail);
+    //         cout << "Break insert pos loop" << endl;
+
+    //         break;
+    //     }
+
+    //     insert_at_pos(head, tail, pos, v);
+
+    //     print_normal(head);
+    //     print_reverse(tail);
+    // }
+
     while (true)
     {
-        int pos, v;
-        cin >> pos >> v;
+        int pos;
+        cin >> pos;
 
-        insert_at_pos(head, tail, pos, v);
+        if (pos == -1)
+        {
+            print_normal(head);
+            print_reverse(tail);
+            break;
+        }
+
+        delete_at_pos(head, tail, pos);
 
         print_normal(head);
         print_reverse(tail);
