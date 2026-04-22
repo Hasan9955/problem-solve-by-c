@@ -75,20 +75,35 @@ int size (Node *head){
 }
 
 
-void reverse (Node *&head, Node *&tail){
+void checkPalindrome (Node *&head, Node *&tail){
 
     Node *i = head;
     Node *j = tail;
+    bool flag = true;
 
     while (i != j && i->next != j)
     {
-        swap(i->val, j->val);
+        
+        // swap(i->val, j->val);
+        if(i->val != j->val){
+            flag = false;
+            break;
+        }
+
         i = i->next;
         j = j->prev;
     }
 
     if(i->next == j){
-        swap(i->val, j->val);
+        if(i->val != j->val){
+            flag = false;
+        }
+    }
+
+    if(flag){
+        cout << "YES" << endl;
+    } else {
+        cout << "NO" << endl;
     }
     
 }
@@ -105,8 +120,8 @@ int main () {
         cin >> v;
 
         if(v == -1){
-            reverse(head, tail);
-            print_normal(head);
+            checkPalindrome(head, tail);
+            // print_normal(head);
             break;
         }
 
