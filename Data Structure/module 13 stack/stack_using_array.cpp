@@ -37,6 +37,21 @@ int main () {
 
     myStack st;
 
+    st.push(30);
+    st.push(20);
+    st.push(10);
+
+    // cout << st.empty() << endl;
     
+    if(st.empty() == false){
+        st.pop();
+        cout << st.top() << endl;
+    }
+    
+    if(st.empty() == false){
+        st.pop();
+        cout << st.top() << endl;
+    }
+
     return 0;
 }
