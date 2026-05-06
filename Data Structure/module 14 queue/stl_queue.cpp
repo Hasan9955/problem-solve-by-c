@@ -14,11 +14,13 @@ int main () {
         qu.push(x);
     }
 
-    while (!qu.empty())
-    {
-        cout << qu.front() << endl;
-        qu.pop();
-    }
+    cout << qu.front() << endl;
+
+    // while (!qu.empty())
+    // {
+    //     cout << qu.front() << endl;
+    //     qu.pop();
+    // }
     
     return 0;
 }
