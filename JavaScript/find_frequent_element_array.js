@@ -8,3 +8,25 @@ const freq = array.reduce((acc, n) => {
 }, {});
 
 console.log(freq);
+
+
+//find the most frequent element in an array
+
+
+//find the most frequent element in an array
+
+
+
+
+//find the most frequent element in an array
+
+
+//find the most frequent element in an array
+
+
+
+//find the most frequent element in an array
+
+
+
+//find the most frequent element in an array
