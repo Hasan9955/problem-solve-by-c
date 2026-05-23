@@ -105,6 +105,9 @@ int count (Node *root){
 
 
 void level_order(Node *root){
+
+    if(root == NULL) return;
+    
     queue <Node*> q;
 
     q.push(root);
@@ -129,8 +132,9 @@ int main () {
     
     Node *root = input_tree();
     level_order(root);
-    // int sz = count(root);
-    //     cout << sz << endl;
+    cout << endl;
+    int sz = count(root);
+        cout << sz << endl;
 
 
     return 0;
