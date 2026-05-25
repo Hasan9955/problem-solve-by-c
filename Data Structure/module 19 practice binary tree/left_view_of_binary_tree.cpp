@@ -99,56 +99,111 @@ int maxHeight (Node *root){
 
     return max(l , r) + 1;
 }
+  
+int getNodeHeight(Node *root, int target, int level){
 
-// how the recurtion work visulaize it *****
+    queue<pair<Node *, int>> q;
+    if (root) q.push({root, level});
 
-/***
+    while (!q.empty())
+    {
+        pair<Node *, int> parent =  q.front();
+        q.pop();
 
-// int maxHeight(Node *root, int depth = 0, string side = "root") {
-//     // Indentation based on recursion depth
-//     string indent = string(depth * 2, ' ');
+
+        Node * node = parent.first;
+        int level = parent.second;
+
+        if(node->val == target){
+            return level;
+        }
+
+        if(node->left){
+            q.push({node->left, level + 1});
+        }
+        if(node->right){
+            q.push({node->right, level + 1});
+        }
+
+        
+
+    }
+
+    return 0;
+}
+
+
+// ---------- slove using queue and pair ----------
+
+// vector<int> getLeftView(Node *root)
+// {
     
-//     if(root == NULL) {
-//         cout << indent << "-- " << side << " NULL -- returning 0" << endl;
-//         return 0;
+//     queue<pair<Node *, int>> q;
+    
+//     if(root) q.push({root, 1});
+//     bool freq[3005] = {false};
+//     vector<int>v;
+
+//     while(!q.empty()){
+
+//         pair<Node *, int> pr = q.front();
+//         q.pop();
+
+//         Node * node = pr.first;
+//         int level = pr.second;
+        
+//         if(freq[level] == false){
+//             v.push_back(node->val);
+//             freq[level] = true;
+
+//         }
+
+//         if(node->left) q.push({node->left, level + 1});
+//         if(node->right) q.push({node->right, level + 1});
+
 //     }
-    
-//     cout << indent << "-- Visiting " << side << " node: " << root->val << " (depth: " << depth << ")" << endl;
-    
-//     int l = maxHeight(root->left, depth + 1, "left");
-//     cout << indent << "  left height of " << root->val << " = " << l << endl;
-    
-//     int r = maxHeight(root->right, depth + 1, "right");
-//     cout << indent << "  right height of " << root->val << " = " << r << endl;
-    
-//     int result = max(l, r) + 1;
-//     cout << indent << "** Height of node " << root->val << " = max(" << l << "," << r << ") + 1 = " << result << endl;
-//     cout << indent << "  Returning " << result << endl;
-    
-//     return result;
+
+//     return v;
 // }
 
- 
- */
+
+void getLeftView(Node *root, int level, vector<int>&ans)
+{
+    
+    if(root == NULL) return;
+
+    if(level == ans.size()){
+        ans.push_back(root->val);
+    }
+
+    getLeftView(root->left, level + 1, ans);
+    getLeftView(root->right, level + 1, ans);
+
+}
 
 
  int main () {
     
-    Node *root = input_tree();
-
-    cout << maxHeight(root) << endl;
+    Node *root = input_tree(); 
     
-    // level_order(root);
+    level_order(root);
+    cout << endl;
 
-    // cout << endl;
-    // int sz = count(root);
-    //     cout << sz << endl;
-
-
-
+    vector <int> ans;
+    
+    getLeftView(root, 0, ans);
+    
+    for (int i : ans)
+    {
+        cout << i << " ";
+    }
+    
 
     return 0;
 }
+ 
+
+
 
 
 /**

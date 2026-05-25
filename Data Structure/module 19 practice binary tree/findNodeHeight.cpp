@@ -169,3 +169,29 @@ int getNodeHeight(Node *root, int target, int level){
     return 0;
 }
  
+
+
+/**
+
+
+input 10 20 60 30 50 70 -1 -1 40 -1 -1 -1 -1 80 -1 -1 -1
+input 10 20 30 40 50 60 70 80 -1 90 100 -1 -1 -1 -1 -1 110 -1 120 -1 -1 -1 -1 -1 -1
+#                              10 (level 0)
+#                             /  \
+#                            /    \
+#                          20      30 (level 1)
+#                         / \     / \
+#                        /   \   /   \
+#                      40    50 60   70 (level 2)
+#                     /     / \     
+#                    /     /   \    
+#                   80    90   100   (level 3)
+#                 /   \  / \   / \
+#                /     \/   \ /   \
+#              None  None 110 None 120 None (level 4)
+#                        / \     / \
+#                       /   \   /   \
+#                     None None None None (level 5)
+
+
+ */
