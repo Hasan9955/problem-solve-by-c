@@ -100,23 +100,55 @@ int maxHeight (Node *root){
     return max(l , r) + 1;
 }
  
+// int getNodeHeight(Node *root, int target, int level){
+
+//     if(root == NULL){
+//         return 0;
+//     }
+
+//     if(root->val == target){
+//         return level;
+//     }
+
+//     int left = getNodeHeight(root->left, target, level + 1);
+
+//     if(left != 0){
+//         return left;
+//     }
+
+//     return getNodeHeight(root->right, target, level + 1);
+
+// }
+ 
 int getNodeHeight(Node *root, int target, int level){
 
-    if(root == NULL){
-        return 0;
+    queue<pair<Node *, int>> q;
+    q.push({root, level});
+
+    while (!q.empty())
+    {
+        pair<Node *, int> parent =  q.front();
+        q.pop();
+
+
+        Node * node = parent.first;
+        int level = parent.second;
+
+        if(node->val == target){
+            return level;
+        }
+
+        if(node->left){
+            q.push({node->left, level + 1});
+        }
+        if(node->right){
+            q.push({node->right, level + 1});
+        }
+
+        
+
     }
-
-    if(root->val == target){
-        return level;
-    }
-
-    int left = getNodeHeight(root->left, target, level + 1);
-
-    if(left != 0){
-        return left;
-    }
-
-    return getNodeHeight(root->right, target, level + 1);
+    
 
 }
 
