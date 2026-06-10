@@ -37,5 +37,8 @@ words = list(str.split())
 
 # print(words)
 
-for items in words:
-    print(items[::-1], end=' ')
+for i, items in enumerate(words):
+    if i == len(words) - 1:
+        print(items[::-1], end='')
+    else:
+        print(items[::-1], end=' ')
