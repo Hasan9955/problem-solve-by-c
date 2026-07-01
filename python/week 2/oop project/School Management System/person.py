@@ -13,7 +13,7 @@ class Teacher(Person):
 
 
     def evaluate_exam(self):
-        return random.randint(1, 100)
+        return random.randint(40, 100)
     
 
 class Student(Person):
@@ -29,19 +29,41 @@ class Student(Person):
         self.grade = None #final grade
 
     def final_grade(self):
+
+
+        # if not self.marks:
+        #     return None
+        
+        # total_points = 0
+        # for subject, marks in self.marks.items():
+        #     grade = School.calculate_grade(marks)
+        #     self.subject_grade[subject] = grade
+        #     total_points += School.grade_to_value(grade)
+
+        # average_gpa = total_points / len(self.marks)
+        # self.grade = School.value_to_grade(average_gpa)
+
+        # return self.grade
+
+
         sum = 0
         for grade in self.subject_grade.values():
             point = School.grade_to_value(grade)
-            sum += point
+            sum += point 
 
-        gpa = sum / len(self.subject_grade)
+        if len(self.subject_grade) == 0:
+            gpa = 0 
+        else:
+            gpa = sum / len(self.subject_grade)
+            
         self.grade = School.value_to_grade(gpa)
+        return self.grade
 
     @property
     def id(self):
         return self.__id
     
-    @id.setattr
+    @id.setter
     def id(self, value):
         self.__id = value
     
